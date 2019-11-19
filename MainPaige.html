@@ -20,10 +20,20 @@
           <!--  директива v-bind - передаёт данные на вход компоненту  -->
           <test-cart-map v-bind:text1="text1"></test-cart-map>
         </div>
-        <div class="col border border-secondary"><test-component></test-component></div>
+        <div class="col border border-secondary" style="overflow: auto;">
+          
+          <table class="table table-hover">
+            <tr><th>Name</th><th>Count</th></tr>
+            <tr v-for="(item, index) in datadev">
+              <th>{{item.name}}</th><td>{{item.dev}}</td>
+            </tr>
+            <tr><th>Total</th><td><span >{{totalDev}}</span></td></tr>
+          </table>
+
+        </div>
         <div class="w-100"></div>
          <!--  директива v-bind - передаёт данные на вход компоненту  -->
-        <div class="col border border-info"><test-cart-plot v-bind:text3="text3"></test-cart-plot></div>
+        <div class="col border border-info"><test-cart-plot v-bind:datadev="datadev"></test-cart-plot></div>
          <!--  директива v-bind - передаёт данные на вход компоненту  -->
         <div class="col border border-dark"><test-table v-bind:text4="text4"></test-table></div>
       </div>

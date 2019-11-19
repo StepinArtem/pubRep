@@ -32,7 +32,7 @@ require.config({
         },
         
 		"MainCatalog":{
-			 deps: ['jquery', 'bootstrapBundle', 'Vue']
+			 deps: ['jquery', 'bootstrapBundle', 'Vue','axios']
 		},
         "testComponent":{ deps: ['jquery', 'bootstrapBundle', 'Vue'] },
         
