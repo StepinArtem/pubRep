@@ -7,10 +7,10 @@ define(['jquery', 'bootstrapBundle', 'Vue','testComponent','mapChart','plotChart
 	return  new Vue({
 		el: '#app',// блок куда инициализируется фремворк
 			data: {	//данные испоьзуемые фреймворком
-				text1:"Текст 1",
-				text2:"Текст 2",
-				text3:"Текст 3",
-				text4:"Текст 4"
+				text1:"Карта",
+				text2:"Таблица",
+				text3:"График",
+				text4:"Талица"
 			},
 			/*components:  {
 				'testComponent': testComponent // тестовый компонент

@@ -19,16 +19,14 @@ require.config({
         tableNew:'components/tableNew'
         //--------------------------------------------------------
     },
-    shim: { // разрешение зависимостей между модулями в [] указаны библиотеки и модулт необходимые для работы
+    shim: { // разрешение зависимостей между модулями в [] указаны библиотеки и модули необходимые для работы
         "jquery": {
             deps: []
         },
         "bootstrapBundle": {
             deps: ['jquery']
         },
-        "Vue": {
-            "exports": "Vue"
-        },
+        
 		"MainCatalog":{
 			 deps: ['jquery', 'bootstrapBundle', 'Vue']
 		},

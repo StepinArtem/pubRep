@@ -1,13 +1,14 @@
 
+//компонент для карты
 define(['jquery', 'Vue', 'bootstrapBundle'], // библиотека jqury, фреймворк Vue
 
 function ($, Vue, bootstrapBundle) {
 
     return Vue.component('test-table', {
-       // props: [''],
+        props: ['text4'],//данные переданные на вход компоненту
         template: ' \
         <div class="testComponent" >\
-       Тест3\
+       {{text4}}\
 </div>\
         ',
         methods: {
