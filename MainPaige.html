@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+    <link href="css/main.css" rel="stylesheet" type="text/css" /> 
+		
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      
+   </head>
+   <body>
+   <div id="app" style="padding: 5px;">
+    <div class="container" style="max-width: 100% !important">
+      <div class="row">
+        <div class="col bg-info">
+          <test-cart-map v-bind:text1="text1"></test-cart-map>
+        </div>
+        <div class="col bg-secondary"><test-component></test-component></div>
+        <div class="w-100"></div>
+        <div class="col bg-light"><test-cart-plot v-bind:text3="text3"></test-cart-plot></div>
+        <div class="col bg-primary"><test-table v-bind:text4="text4"></test-table></div>
+      </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript" data-main="js/main" src="js/require.js"></script> 
+   </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+    <link href="css/main.css" rel="stylesheet" type="text/css" /> 
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+        
+    <script src="js/vue.js"></script>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script src="js/xml2json.js"></script>
+
+    <script src="js/Chart.min.js"></script>
+
+    <script src="js/utils.js"></script>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      
+   </head>
+   <body>
+   <div id="app" style="padding: 5px;">
+    
+    <table  class="table  table-striped">
+        <tr> <th scope="row">Адресс</th><td>{{sender.address}}</td> </tr>
+        <tr> <th scope="row">Комнапия</th><td>{{sender.company}}</td> </tr>
+        <tr> <th scope="row">Отправитель</th><td>{{ sender.person}}</td> </tr>
+        <tr> <th scope="row">Телефон</th><td>{{sender.phone}}</td> </tr>
+    </table>
+
+    <div>
+
+
+    </div>
+    <div id="canvas-holder" >
+		<canvas id="chart-area"></canvas>
+	</div>
+    </div>
+
+<script>
+
+    var app = new Vue({
+		el: '#app',// блок куда инициализируется фремворк
+			data: {	//данные испоьзуемые фреймворком
+                api_url: "https://home.courierexe.ru/api/",
+                config:{headers: {'Content-Type': 'application/x-www-form-urlencoded'} },
+                card:{},
+                sender:{}
+			},
+			/*components:  {
+				'testComponent': testComponent // тестовый компонент
+			},*/
+			// инициализация фреймворка
+			created: function () { 
+				
+				var that = this;//ссылка на самого себя
+                                
+                var text =  `<?xml version="1.0" encoding="UTF-8" ?>
+                        <statusreq><auth extra="8" login="test" pass="testm">
+                        </auth><client>CLIENT</client>
+                        <orderno>100013195</orderno>
+                        </statusreq>`;
+
+                axios.post(that.api_url, text, that.config).then(res => {
+
+                    var myjson = xml2json.parser(res.data);
+
+                    console.log(myjson["statusreq"]);
+
+                    var status = myjson["statusreq"];
+
+                    that.$data.card=status;
+
+                    var order = status["order"];
+
+                    that.$data.sender = order["sender"];
+
+                    //--------------------------------------------------------
+
+                    var config = {
+			            type: 'doughnut',
+			            data: {
+				        datasets: [{
+					    data: [
+						    10,
+						    20,
+						    30,
+						    40,
+						    50,
+					    ],
+					    backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					    ],
+					    label: 'Dataset 1'
+				        }],
+				        labels: [
+					        'Red',
+					        'Orange',
+					        'Yellow',
+					        'Green',
+					        'Blue'
+				            ]
+			                },
+			            options: {
+				            responsive: true,
+				            legend: {
+					            position: 'right',
+				            },
+				            title: {
+					            display: true,
+					            text: 'Заголовок диаграммы'
+				            },
+				            animation: {
+					            animateScale: true,
+					            animateRotate: true
+				            }
+			            }
+		            };
+
+                    var ctx = document.getElementById('chart-area').getContext('2d');
+			        window.myDoughnut = new Chart(ctx, config);
+
+                    }).catch(err => console.log(err));
+            },
+            
+			//методы использыемые при работе фреймворка
+			methods: {			
+			//---------------------------------------------------------
+					
+			
+			}
+        });     
+
+		/*
+		window.onload = function() {
+			
+		};*/
+
+</script>
+
+<style>
+    th{
+        width: 100px
+    }
+</style>
+
+
+  <!--  <script type="text/javascript" data-main="js/main" src="js/require.js"></script> -->
+   </body>
+</html>

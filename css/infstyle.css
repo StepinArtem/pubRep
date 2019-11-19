@@ -1,0 +1,52 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22.07.2017, 20:23:37
+    Author     : User
+*/
+
+.maininf{
+    margin: auto;
+    border: 1px solid black;
+    width: 70%;
+    text-align: center;
+}
+
+
+.info{
+    position: fixed;
+    border: 2px solid black;
+    background-color: white;
+    width: 20px;
+    text-align: center;
+    z-index: 3000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#inf1{
+    background: url(../img/inf1.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+}
+
+#inf2{
+    background: url(../img/inf2.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+}
+
+#inf3{
+    background: url(../img/inf3.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+}
