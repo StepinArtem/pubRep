@@ -58,7 +58,7 @@
 			created: function () { 
 				
 				var that = this;//ссылка на самого себя
-                                
+                     //запрос через тестовый аккаунт            
                 var text =  `<?xml version="1.0" encoding="UTF-8" ?>
                         <statusreq><auth extra="8" login="test" pass="testm">
                         </auth><client>CLIENT</client>
@@ -80,7 +80,7 @@
                     that.$data.sender = order["sender"];
 
                     //--------------------------------------------------------
-
+					//конфигурация грфика
                     var config = {
 			            type: 'doughnut',
 			            data: {

@@ -16,16 +16,16 @@
 
     <div class="container" style="max-width: 100% !important">
       <div class="row">
-        <div class="col bg-info">
+        <div class="col border border-primary">
           <!--  директива v-bind - передаёт данные на вход компоненту  -->
           <test-cart-map v-bind:text1="text1"></test-cart-map>
         </div>
-        <div class="col bg-secondary"><test-component></test-component></div>
+        <div class="col border border-secondary"><test-component></test-component></div>
         <div class="w-100"></div>
          <!--  директива v-bind - передаёт данные на вход компоненту  -->
-        <div class="col bg-light"><test-cart-plot v-bind:text3="text3"></test-cart-plot></div>
+        <div class="col border border-info"><test-cart-plot v-bind:text3="text3"></test-cart-plot></div>
          <!--  директива v-bind - передаёт данные на вход компоненту  -->
-        <div class="col bg-primary"><test-table v-bind:text4="text4"></test-table></div>
+        <div class="col border border-dark"><test-table v-bind:text4="text4"></test-table></div>
       </div>
     </div>
 </div>
