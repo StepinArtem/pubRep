@@ -11,9 +11,9 @@ define(['jquery', 'bootstrapBundle', 'Vue','testComponent','mapChart','plotChart
 				text2:"Таблица",
 				text3:"График",
 				text4:"Талица",
-				config:null,
-				datadev:null,
-				total:0
+				config:null,//конфигурация графика
+				datadev:null,//данные 
+				total:0//сумма
 			},
 			/*components:  {
 				'testComponent': testComponent // тестовый компонент
@@ -22,7 +22,8 @@ define(['jquery', 'bootstrapBundle', 'Vue','testComponent','mapChart','plotChart
 			created: function () { 
 				
 				var that = this;//ссылка на самого себя
-				
+				//ВНИМАНИЕ! ВО избежание ПОПАБОЛИ, рекомендуется делать синхронные запросы 
+				// чтобы компоненты не посыпались при инициализации
 				var settings = {
 					"async": false,
 					"crossDomain": true,

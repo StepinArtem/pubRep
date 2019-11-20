@@ -1,5 +1,5 @@
 
-
+// тестовый компонент
 define(['jquery', 'Vue', 'bootstrapBundle'], // библиотека jqury, фреймворк Vue
 
 function ($, Vue, bootstrapBundle) {

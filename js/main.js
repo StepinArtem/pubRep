@@ -14,9 +14,9 @@ require.config({
         //перчень подключаемых файлов
 		MainCatalog:'MainCatalog',// экземпляр фрейворк, точка входа
         testComponent:'components/testComponent', // тестовый компонет	
-        mapChart:'components/mapChart',
-        plotChart:'components/plotChart',
-        tableNew:'components/tableNew',
+        mapChart:'components/mapChart',// компонент карты
+        plotChart:'components/plotChart', // компонент графика
+        tableNew:'components/tableNew', // компонент таблицы
         xmlToJson:'xml2json',
         chart:'Chart.min',
         utils:'utils',

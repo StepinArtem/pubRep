@@ -5,11 +5,13 @@ define(['jquery', 'Vue', 'bootstrapBundle'], // библиотека jqury, фр
 function ($, Vue, bootstrapBundle) {
 
     return Vue.component('test-table', {
+
         props: ['text4'],//данные переданные на вход компоненту
+       
         template: ' \
         <div class="testComponent" >\
-       {{text4}}\
-</div>\
+        {{text4}}\
+        </div>\
         ',
         methods: {
             

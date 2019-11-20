@@ -5,20 +5,24 @@ define(['jquery', 'Vue', 'bootstrapBundle'], // библиотека jqury, фр
 function ($, Vue, bootstrapBundle) {
 
     return Vue.component('test-cart-plot', {
-       props: ['datadev'],//данные переданные на вход компоненту
+
+        props: ['datadev'],//данные переданные на вход компоненту
+        // шаблон инициализируемый компонентом при создании
         template: ' \
         <div class="testComponent" >\
         <canvas id="chart-area"></canvas>\
         </div>\
-        ', created: function () {
+        ', 
+            
+        created: function () {
            
             var that = this;
-
+            //конфигурация графика
             var config = {
                 type: 'doughnut',
                 data: {
                 datasets: [{
-                data: [],
+                data: [],//данные для графика
                 backgroundColor: [
                 window.chartColors.red,
                 window.chartColors.orange,
@@ -33,7 +37,7 @@ function ($, Vue, bootstrapBundle) {
                 ],
                 label: 'Dataset 1'
                 }],
-                labels: [ ]
+                labels: [ ] //названия для графика
                     },
                 options: {
                     responsive: true,
@@ -50,16 +54,17 @@ function ($, Vue, bootstrapBundle) {
                     }
                 }
             };
-
+            //присваиваеконфигурацию графика
            this.$data.config = config;
 
           },
+          // событие вызывается просле инициализации фреймворка когда страница уже полностью загружена
           mounted: function () {
 
             var that = this;
 
             console.log(that.datadev);
-            
+            //заполняем конфигурацию графика data[] и labels[]
             that.datadev.forEach(function(item, index, array) {
 					
                 that.$data.config.data.datasets[0].data.push(item.dev);
@@ -67,7 +72,9 @@ function ($, Vue, bootstrapBundle) {
                 that.$data.config.data.labels.push(item.name)
 
               });
+            // инициализируем график  
             var ctx = document.getElementById('chart-area').getContext('2d');
+            
             window.myDoughnut = new Chart(ctx, this.$data.config);
           
           },

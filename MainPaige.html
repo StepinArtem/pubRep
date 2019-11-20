@@ -20,14 +20,22 @@
           <!--  директива v-bind - передаёт данные на вход компоненту  -->
           <test-cart-map v-bind:text1="text1"></test-cart-map>
         </div>
+
+        <!-- таблица с городами парсится из фреймворка -->
         <div class="col border border-secondary" style="overflow: auto;">
           
           <table class="table table-hover">
+
             <tr><th>Name</th><th>Count</th></tr>
+            <!-- данные из $data парсится директивой v-for -->
             <tr v-for="(item, index) in datadev">
+
               <th>{{item.name}}</th><td>{{item.dev}}</td>
+
             </tr>
+            <!-- Вычислимое свойство см Computeted в телефремворка -->
             <tr><th>Total</th><td><span >{{totalDev}}</span></td></tr>
+
           </table>
 
         </div>
